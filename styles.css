@@ -1,0 +1,38 @@
+#buttonNum7{
+position:absolute;
+left:100px;
+top:100px;
+
+width:150px;
+height: 150px;
+background-color: white;
+color: black;
+border: 2px solid black;
+}
+#buttonNum8{
+position:absolute;
+left:275px;
+top:100px;
+
+width:150px;
+height: 150px;
+background-color: white;
+color: black;
+border: 2px solid black;
+}
+#buttonNum9{
+position:absolute;
+left:450px;
+top:100px;
+
+width:150px;
+height: 150px;
+background-color: white;
+color: black;
+border: 2px solid black;
+}
+
+button:hover{
+  background-color: black;
+  color: white;
+}
