@@ -1,22 +1,88 @@
+
+#divisionButton{
+  position:absolute;
+  left:802px;
+  top:148px;
+}
+#multiplcationButton{
+  position:absolute;
+  left:802px;
+  top:299px;
+}
+#subtractionButton{
+  position:absolute;
+  left:802px;
+  top:450px;
+}
+#additionButton{
+  position:absolute;
+  left:802px;
+  top:601px;
+}
+#equalButton{
+  position:absolute;
+  left:802px;
+  top:752px;
+}
+#decimalButton{
+  position:absolute;
+  left:651px;
+  top:752px;
+}
+#buttonNum0{
+  position:absolute;
+  left:349px;
+  top:752px;
+}
+#buttonNum1{
+  position:absolute;
+  left:349px;
+  top:601px;
+}
+#buttonNum2{
+  position:absolute;
+  left:500px;
+  top:601px;
+}
+#buttonNum3{
+  position:absolute;
+  left:651px;
+  top:601px;
+}
+#buttonNum4{
+  position:absolute;
+  left:349px;
+  top:450px;
+}
+#buttonNum5{
+  position:absolute;
+  left: 500px;
+  top: 450px;
+}
 #buttonNum6{
   position:absolute;
-  left:402px;
-  top:251px;
+  left:651px;
+  top:450px;
 }
 #buttonNum7{
 position:absolute;
-left:100px;
-top:100px;
+left:349px;
+top:299px;
 }
 #buttonNum8{
 position:absolute;
-left:251px;
-top:100px;
+left:500px;
+top:299px;
 }
 #buttonNum9{
 position:absolute;
-left:402px;
-top:100px;
+left:651px;
+top:299px;
+}
+#clearButton{
+  position:absolute;
+  left:349px;
+  top:148px;
 }
 
 button:hover {
@@ -31,4 +97,33 @@ button:hover {
   background-color: #EBE9E9;
   color: black;
   border: 2px solid black;
+  font-size: 48px;
+  font-family: sans-serif;
+}
+.zero-button{
+  width:301px;
+  height: 150px;
+  background-color: #EBE9E9;
+  color: black;
+  border: 2px solid black;
+  font-size: 48px;
+  font-family: sans-serif;
+}
+.function-buttons{
+  width:150px;
+  height: 150px;
+  background-color: orange;
+  color: black;
+  border: 2px solid black;
+  font-size: 48px;
+  font-family: sans-serif;
+}
+.clear-button{
+  width:150px;
+  height: 150px;
+  background-color: #E8431E;
+  color: black;
+  border: 2px solid black;
+  font-size: 48px;
+  font-family: sans-serif;
 }
