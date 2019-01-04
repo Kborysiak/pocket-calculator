@@ -127,3 +127,24 @@ button:hover {
   font-size: 48px;
   font-family: sans-serif;
 }
+#negationButton{
+  position:absolute;
+  left:500px;
+  top:148px;
+}
+#percentageButton{
+  position:absolute;
+  left:651px;
+  top:148px;
+}
+input{
+  width:599px;
+  height:125px;
+  position:absolute;
+  left:349px;
+  top:15px;
+  text-align: right;
+  font-size: 60px;
+  color:black;
+  border: solid black 2px;
+}
