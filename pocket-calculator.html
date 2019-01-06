@@ -9,10 +9,10 @@
   <body>
     <div class=calculator>
       <form name="calc">
-        <input name="display" disabled>
+        <input name="display" disabled >
       </form>
       </div>
-    <button id="decimalButton" class="calc-buttons">.</button>
+    <button id="decimalButton" class="calc-buttons" onclick="insert('.')">.</button>
     <button id="buttonNum0" class=zero-button onclick="insert(0)">0</button>
     <button id="buttonNum1" class="calc-buttons" onclick="insert(1)">1</button>
     <button id="buttonNum2" class=calc-buttons onclick="insert(2)">2</button>
@@ -30,7 +30,7 @@
     <button id="divisionButton" class=function-buttons onclick="insert('/')">÷</button>
     <button id="clearButton" class=clear-button onclick="clearCalc()">AC</button>
     <button id="negationButton" class=function-buttons onclick="numberNegation()">+/-</button>
-    <button id="percentageButton" class=function-buttons>%</button>
+    <button id="percentageButton" class=function-buttons onclick="numberPercentage()">%</button>
 
   </body>
 </html

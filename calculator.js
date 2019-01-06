@@ -17,3 +17,7 @@ function equal(){
 function numberNegation(){
   document.calc.display.value=document.calc.display.value *-1
 }
+
+function numberPercentage(){
+  document.calc.display.value=document.calc.display.value/100
+}
