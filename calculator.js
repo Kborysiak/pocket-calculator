@@ -1,5 +1,11 @@
 function insert(num){
-  document.calc.display.value = document.calc.display.value + num;
+  if (num === ".") {
+      if (!document.calc.display.value.includes(".")) {
+        document.calc.display.value = document.calc.display.value + num;
+      }
+  } else {
+    document.calc.display.value = document.calc.display.value + num;
+  }
 }
 
 function clearCalc(){
@@ -11,9 +17,10 @@ function equal(){
   if(calcAnswer){
     document.calc.display.value=eval(calcAnswer).toLocaleString("en");
   }
-  if(document.calc.display.value === "Infinity") {
+  if(document.calc.display.value === "Infinity" || document.calc.display.value === "∞") {
     document.calc.display.value = "ERROR";
   }
+
 }
 function numberNegation(){
   document.calc.display.value=document.calc.display.value *-1
