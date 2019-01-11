@@ -1,12 +1,13 @@
 var executed = false;
 var expressionArray= [];
-var firstCondition = false;
+//var firstCondition = false;
 //var secondCondition = false;
 function insert(num){
   if(executed == false){
   document.calc.display.value=""
   executed = true;
 }
+  expressionArray.push(num)
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
         document.calc.display.value = document.calc.display.value + num;
@@ -24,18 +25,18 @@ function clearCalc(){
   document.calc.display.value=0;
   executed = false;
 }
-function storeData(){
+//function storeData(){
 
-    if(firstCondition == false){
-      expressionArray.push(document.calc.display.value)
-    console.log(expressionArray)
-  }
-    else{
-      expressionArray.push(document.calc.display.value)
-      console.log(expressionArray)
-      firstCondition = false;
-    }
-}
+    //if(firstCondition == false){
+      //expressionArray.push(document.calc.display.value)
+  //  console.log(expressionArray)
+  //}
+    //if(firstCondition == true){
+      //expressionArray.push(document.calc.display.value)
+      //console.log(expressionArray)
+      //firstCondition = false;
+    //}
+//}
 function clearOnOp(){
   document.calc.display.value= 0
   executed = false;
