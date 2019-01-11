@@ -25,12 +25,12 @@
     <button id="buttonNum9" class="calc-buttons"onclick="insert(9)">9</button>
     <button id="equalButton" class="function-buttons" onclick="equal();">=</button>
     <button id="additionButton" class="function-buttons" onclick="insert('+'); clearOnOp();">+</button>
-    <button id="subtractionButton" class=function-buttons onclick="insert('-');">-</button>
-    <button id="multiplcationButton" class=function-buttons onclick="insert('*');">×</button>
-    <button id="divisionButton" class=function-buttons onclick="insert('/');">÷</button>
+    <button id="subtractionButton" class=function-buttons onclick="insert('-'); clearOnOp();">-</button>
+    <button id="multiplcationButton" class=function-buttons onclick="insert('*'); clearOnOp();">×</button>
+    <button id="divisionButton" class=function-buttons onclick="insert('/'); clearOnOp();">÷</button>
     <button id="clearButton" class=clear-button onclick="clearCalc()">AC</button>
-    <button id="negationButton" class=function-buttons onclick="numberNegation();">+/-</button>
-    <button id="percentageButton" class=function-buttons onclick="numberPercentage();">%</button>
+    <button id="negationButton" class=function-buttons onclick="numberNegation(); clearOnOp();">+/-</button>
+    <button id="percentageButton" class=function-buttons onclick="numberPercentage(); clearOnOp();">%</button>
 
   </body>
 </html

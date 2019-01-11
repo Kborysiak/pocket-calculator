@@ -8,6 +8,8 @@ function insert(num){
   executed = true;
 }
   expressionArray.push(num)
+
+  console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
         document.calc.display.value = document.calc.display.value + num;
@@ -24,25 +26,16 @@ function insert(num){
 function clearCalc(){
   document.calc.display.value=0;
   executed = false;
+    expressionArray = [];
 }
-//function storeData(){
-
-    //if(firstCondition == false){
-      //expressionArray.push(document.calc.display.value)
-  //  console.log(expressionArray)
-  //}
-    //if(firstCondition == true){
-      //expressionArray.push(document.calc.display.value)
-      //console.log(expressionArray)
-      //firstCondition = false;
-    //}
-//}
 function clearOnOp(){
   document.calc.display.value= 0
   executed = false;
 }
 function equal(){
-  let calcAnswer= eval(expressionArray);
+  let calcAnswer= eval(expressionArray.join(''));
+    expressionArray = [];
+    expressionArray = [calcAnswer];
   if(calcAnswer > 999999999){
     document.calc.display.value = calcAnswer.toExponential(9)
   }else{
