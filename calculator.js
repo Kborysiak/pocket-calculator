@@ -1,4 +1,7 @@
 var executed = false;
+var expressionArray= [];
+var firstCondition = false;
+//var secondCondition = false;
 function insert(num){
   if(executed == false){
   document.calc.display.value=""
@@ -21,8 +24,24 @@ function clearCalc(){
   document.calc.display.value=0;
   executed = false;
 }
+function storeData(){
+
+    if(firstCondition == false){
+      expressionArray.push(document.calc.display.value)
+    console.log(expressionArray)
+  }
+    else{
+      expressionArray.push(document.calc.display.value)
+      console.log(expressionArray)
+      firstCondition = false;
+    }
+}
+function clearOnOp(){
+  document.calc.display.value= 0
+  executed = false;
+}
 function equal(){
-  let calcAnswer= eval(document.calc.display.value);
+  let calcAnswer= eval(expressionArray);
   if(calcAnswer > 999999999){
     document.calc.display.value = calcAnswer.toExponential(9)
   }else{
