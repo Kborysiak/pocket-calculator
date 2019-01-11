@@ -17,10 +17,19 @@ function insert(num){
   } else {
     document.calc.display.value = document.calc.display.value + num;
   }
-  if(Number(document.calc.display.value.length <= 9)){
+  if(Number(document.calc.display.value.length <= 8)){
     document.calc.display.value = document.calc.display.value
   }else{
-
+    document.getElementById("buttonNum0").disabled = true;
+    document.getElementById("buttonNum1").disabled = true;
+    document.getElementById("buttonNum2").disabled = true;
+    document.getElementById("buttonNum3").disabled = true;
+    document.getElementById("buttonNum4").disabled = true;
+    document.getElementById("buttonNum5").disabled = true;
+    document.getElementById("buttonNum6").disabled = true;
+    document.getElementById("buttonNum7").disabled = true;
+    document.getElementById("buttonNum8").disabled = true;
+    document.getElementById("buttonNum9").disabled = true;
   }
 }
 function clearCalc(){
@@ -31,6 +40,16 @@ function clearCalc(){
 function clearOnOp(){
   document.calc.display.value= 0
   executed = false;
+  document.getElementById("buttonNum0").disabled = false;
+  document.getElementById("buttonNum1").disabled = false;
+  document.getElementById("buttonNum2").disabled = false;
+  document.getElementById("buttonNum3").disabled = false;
+  document.getElementById("buttonNum4").disabled = false;
+  document.getElementById("buttonNum5").disabled = false;
+  document.getElementById("buttonNum6").disabled = false;
+  document.getElementById("buttonNum7").disabled = false;
+  document.getElementById("buttonNum8").disabled = false;
+  document.getElementById("buttonNum9").disabled = false;
 }
 function equal(){
   let calcAnswer= eval(expressionArray.join(''));
