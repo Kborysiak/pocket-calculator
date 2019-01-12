@@ -7,8 +7,8 @@ function insert(num){
   document.calc.display.value=""
   executed = true;
 }
-  expressionArray.push(num)
 
+  expressionArray.push(num)
   console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
@@ -17,6 +17,7 @@ function insert(num){
   } else {
     document.calc.display.value = document.calc.display.value + num;
   }
+
   if(Number(document.calc.display.value.length <= 8)){
     document.calc.display.value = document.calc.display.value
   }else{
@@ -36,6 +37,16 @@ function clearCalc(){
   document.calc.display.value=0;
   executed = false;
     expressionArray = [];
+    document.getElementById("buttonNum0").disabled = false;
+    document.getElementById("buttonNum1").disabled = false;
+    document.getElementById("buttonNum2").disabled = false;
+    document.getElementById("buttonNum3").disabled = false;
+    document.getElementById("buttonNum4").disabled = false;
+    document.getElementById("buttonNum5").disabled = false;
+    document.getElementById("buttonNum6").disabled = false;
+    document.getElementById("buttonNum7").disabled = false;
+    document.getElementById("buttonNum8").disabled = false;
+    document.getElementById("buttonNum9").disabled = false;
 }
 function clearOnOp(){
   document.calc.display.value= 0
