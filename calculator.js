@@ -8,6 +8,7 @@ function insert(num){
   executed = true;
 }
 
+
   expressionArray.push(num)
   console.log(expressionArray.join(''))
   if (num === ".") {
@@ -63,6 +64,16 @@ function clearOnOp(){
   document.getElementById("buttonNum9").disabled = false;
 }
 function equal(){
+  document.getElementById("buttonNum0").disabled = true;
+  document.getElementById("buttonNum1").disabled = true;
+  document.getElementById("buttonNum2").disabled = true;
+  document.getElementById("buttonNum3").disabled = true;
+  document.getElementById("buttonNum4").disabled = true;
+  document.getElementById("buttonNum5").disabled = true;
+  document.getElementById("buttonNum6").disabled = true;
+  document.getElementById("buttonNum7").disabled = true;
+  document.getElementById("buttonNum8").disabled = true;
+  document.getElementById("buttonNum9").disabled = true;
   let calcAnswer= eval(expressionArray.join(''));
     expressionArray = [];
     expressionArray = [calcAnswer];
@@ -77,9 +88,12 @@ function equal(){
   }
 }
 function numberNegation(){
-  document.calc.display.value=document.calc.display.value *-1
+  document.calc.display.value=document.calc.display.value*-1
+  expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] *-1
+  console.log(expressionArray)
 }
 
 function numberPercentage(){
   document.calc.display.value=document.calc.display.value/100
+  expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] /100
 }
