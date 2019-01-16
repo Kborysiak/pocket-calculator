@@ -13,7 +13,7 @@ function insert(num){
 
 
   expressionArray.push(num)
-  //console.log(expressionArray.join(''))
+  console.log("expressionArray pushed", expressionArray.join(''))
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
         document.calc.display.value = document.calc.display.value + num;
@@ -22,7 +22,7 @@ function insert(num){
     document.calc.display.value = document.calc.display.value + num;
   }
 
-  if(Number(document.calc.display.value.length) <= 8){
+  if(Number(document.calc.display.value.length) <= 10){
     document.calc.display.value = document.calc.display.value
   }else{
     document.getElementById("buttonNum0").disabled = true;
@@ -37,8 +37,8 @@ function insert(num){
     document.getElementById("buttonNum9").disabled = true;
     document.getElementById("decimalButton").disabled = true;
   }
-  console.log(document.calc.display.value.split(",").join(""));
-  console.log(document.calc.display.value);
+  console.log("modified", document.calc.display.value.split(",").join(""));
+  console.log("docCalc developed",document.calc.display.value);
   let commaInput = Number(document.calc.display.value.split(",").join("")).toLocaleString();
   document.calc.display.value = commaInput;
 }
