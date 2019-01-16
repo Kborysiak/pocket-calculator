@@ -1,5 +1,7 @@
 var executed = false;
 var expressionArray= [];
+var decStatus = false;
+var piStatus = false;
 //var firstCondition = false;
 //var secondCondition = false;
 function insert(num){
@@ -37,6 +39,8 @@ function insert(num){
 function clearCalc(){
   document.calc.display.value=0;
   executed = false;
+  decStatus = false;
+  piStatus = false;
     expressionArray = [];
     document.getElementById("buttonNum0").disabled = false;
     document.getElementById("buttonNum1").disabled = false;
@@ -48,10 +52,13 @@ function clearCalc(){
     document.getElementById("buttonNum7").disabled = false;
     document.getElementById("buttonNum8").disabled = false;
     document.getElementById("buttonNum9").disabled = false;
+    document.getElementById("piButton").disabled = false;
 }
 function clearOnOp(){
   document.calc.display.value= 0
   executed = false;
+  decStatus = false;
+  piStatus = false;
   document.getElementById("buttonNum0").disabled = false;
   document.getElementById("buttonNum1").disabled = false;
   document.getElementById("buttonNum2").disabled = false;
@@ -62,8 +69,10 @@ function clearOnOp(){
   document.getElementById("buttonNum7").disabled = false;
   document.getElementById("buttonNum8").disabled = false;
   document.getElementById("buttonNum9").disabled = false;
+  document.getElementById("piButton").disabled = false;
 }
 function equal(){
+  piStatus = false;
   document.getElementById("buttonNum0").disabled = true;
   document.getElementById("buttonNum1").disabled = true;
   document.getElementById("buttonNum2").disabled = true;
@@ -74,6 +83,7 @@ function equal(){
   document.getElementById("buttonNum7").disabled = true;
   document.getElementById("buttonNum8").disabled = true;
   document.getElementById("buttonNum9").disabled = true;
+  document.getElementById("piButton").disabled = true;
   let calcAnswer= eval(expressionArray.join(''));
     expressionArray = [];
     expressionArray = [calcAnswer];
@@ -88,12 +98,30 @@ function equal(){
   }
 }
 function numberNegation(){
-  document.calc.display.value=document.calc.display.value*-1
-  expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] *-1
-  console.log(expressionArray)
+    document.calc.display.value=document.calc.display.value*-1
+    expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] *-1
+    console.log(expressionArray)
 }
 
 function numberPercentage(){
   document.calc.display.value=document.calc.display.value/100
   expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] /100
+}
+
+function decimalInsert(num){
+  if(decStatus == false){
+    document.calc.display.value = document.calc.display.value + num
+    expressionArray.push(num)
+    console.log(expressionArray)
+    decStatus = true;
+  }
+}
+function piInsert(num){
+  if(piStatus == false){
+    document.calc.display.value = ''
+    document.calc.display.value = document.calc.display.value + num
+    expressionArray.push(num)
+    console.log(expressionArray)
+    piStatus=true;
+  }
 }
