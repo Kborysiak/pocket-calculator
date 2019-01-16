@@ -11,8 +11,9 @@ function insert(num){
 }
 
 
+
   expressionArray.push(num)
-  console.log(expressionArray.join(''))
+  //console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
         document.calc.display.value = document.calc.display.value + num;
@@ -21,7 +22,7 @@ function insert(num){
     document.calc.display.value = document.calc.display.value + num;
   }
 
-  if(Number(document.calc.display.value.length <= 8)){
+  if(Number(document.calc.display.value.length) <= 8){
     document.calc.display.value = document.calc.display.value
   }else{
     document.getElementById("buttonNum0").disabled = true;
@@ -34,7 +35,12 @@ function insert(num){
     document.getElementById("buttonNum7").disabled = true;
     document.getElementById("buttonNum8").disabled = true;
     document.getElementById("buttonNum9").disabled = true;
+    document.getElementById("decimalButton").disabled = true;
   }
+  console.log(document.calc.display.value.split(",").join(""));
+  console.log(document.calc.display.value);
+  let commaInput = Number(document.calc.display.value.split(",").join("")).toLocaleString();
+  document.calc.display.value = commaInput;
 }
 function clearCalc(){
   document.calc.display.value=0;
@@ -53,6 +59,7 @@ function clearCalc(){
     document.getElementById("buttonNum8").disabled = false;
     document.getElementById("buttonNum9").disabled = false;
     document.getElementById("piButton").disabled = false;
+    document.getElementById("decimalButton").disabled = false;
 }
 function clearOnOp(){
   document.calc.display.value= 0
@@ -70,9 +77,11 @@ function clearOnOp(){
   document.getElementById("buttonNum8").disabled = false;
   document.getElementById("buttonNum9").disabled = false;
   document.getElementById("piButton").disabled = false;
+  document.getElementById("decimalButton").disabled = false;
 }
 function equal(){
   piStatus = false;
+  document.getElementById("decimalButton").disabled = true;
   document.getElementById("buttonNum0").disabled = true;
   document.getElementById("buttonNum1").disabled = true;
   document.getElementById("buttonNum2").disabled = true;
@@ -93,7 +102,7 @@ function equal(){
     document.calc.display.value=calcAnswer.toLocaleString("en")
   }
 
-  if(document.calc.display.value === "Infinity" || document.calc.display.value === "∞") {
+  if(document.calc.display.value === "Infinity" || document.calc.display.value === "∞" || document.calc.display.value === "NaN") {
     document.calc.display.value = "ERROR";
   }
 }
@@ -114,6 +123,7 @@ function decimalInsert(num){
     expressionArray.push(num)
     console.log(expressionArray)
     decStatus = true;
+    document.getElementById("decimalButton").disabled = true;
   }
 }
 function piInsert(num){
