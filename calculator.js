@@ -2,6 +2,7 @@ var executed = false;
 var expressionArray= [];
 var decStatus = false;
 var piStatus = false;
+var decInserted = false;
 //var firstCondition = false;
 //var secondCondition = false;
 function insert(num){
@@ -13,7 +14,7 @@ function insert(num){
 
 
   expressionArray.push(num)
-  console.log("expressionArray pushed", expressionArray.join(''))
+  console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
         document.calc.display.value = document.calc.display.value + num;
@@ -37,16 +38,19 @@ function insert(num){
     document.getElementById("buttonNum9").disabled = true;
     document.getElementById("decimalButton").disabled = true;
   }
-  console.log("modified", document.calc.display.value.split(",").join(""));
-  console.log("docCalc developed",document.calc.display.value);
+  //console.log("modified", document.calc.display.value.split(",").join(""));
+  //console.log("docCalc developed",document.calc.display.value);
+  if(decInserted == false){
   let commaInput = Number(document.calc.display.value.split(",").join("")).toLocaleString();
   document.calc.display.value = commaInput;
+  }
 }
 function clearCalc(){
   document.calc.display.value=0;
   executed = false;
   decStatus = false;
   piStatus = false;
+  decInserted = false;
     expressionArray = [];
     document.getElementById("buttonNum0").disabled = false;
     document.getElementById("buttonNum1").disabled = false;
@@ -66,6 +70,7 @@ function clearOnOp(){
   executed = false;
   decStatus = false;
   piStatus = false;
+  decInserted = false;
   document.getElementById("buttonNum0").disabled = false;
   document.getElementById("buttonNum1").disabled = false;
   document.getElementById("buttonNum2").disabled = false;
@@ -123,6 +128,7 @@ function decimalInsert(num){
     expressionArray.push(num)
     console.log(expressionArray)
     decStatus = true;
+    decInserted = true;
     document.getElementById("decimalButton").disabled = true;
   }
 }
