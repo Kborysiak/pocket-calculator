@@ -102,7 +102,7 @@ function equal(){
   let calcAnswer= eval(expressionArray.join(''));
     expressionArray = [];
     expressionArray = [calcAnswer];
-  if(calcAnswer > 999999999){
+  if(calcAnswer > 999999999 || calcAnswer < -999999999){
     document.calc.display.value = calcAnswer.toExponential(9)
   }else{
     document.calc.display.value=calcAnswer.toLocaleString("en")
@@ -123,8 +123,9 @@ function numberNegation(){
 function numberPercentage(){
   document.calc.display.value = document.calc.display.value.split(",").join("")
   document.calc.display.value = document.calc.display.value / 100
-  document.calc.display.value = Number(document.calc.display.value.split(",").join("")).toLocaleString();
-    expressionArray = [preComma / 100]
+  let numberToBePercentage = expressionArray
+  numberToBePercentage = numberToBePercentage / 100
+  expressionArray[expressionArray.length - expressionArray.length ]= expressionArray[expressionArray.length - expressionArray.length] = numberToBePercentage
     console.log(expressionArray)
 }
 
