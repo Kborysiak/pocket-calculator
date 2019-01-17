@@ -121,8 +121,15 @@ function numberNegation(){
 
 function numberPercentage(){
   document.calc.display.value = document.calc.display.value.split(",").join("")
+  let numsCount = document.calc.display.value.length
+  numsCount = numsCount -1
+  console.log("nums", numsCount)
+  let amountToBeRemoved = expressionArray.length - numsCount
+  while(expressionArray.length >= amountToBeRemoved){
+    expressionArray.pop();
+  }
   document.calc.display.value = document.calc.display.value / 100
-  expressionArray = document.calc.display.value
+expressionArray[amountToBeRemoved] = document.calc.display.value
   console.log(expressionArray)
 }
 
