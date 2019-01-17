@@ -3,6 +3,8 @@ var expressionArray= [];
 var decStatus = false;
 var piStatus = false;
 var decInserted = false;
+var preComma;
+var percentNumber;
 //var firstCondition = false;
 //var secondCondition = false;
 function insert(num){
@@ -14,6 +16,7 @@ function insert(num){
 
 
   expressionArray.push(num)
+
   console.log(expressionArray.join(''))
   if (num === ".") {
       if (!document.calc.display.value.includes(".")) {
@@ -38,6 +41,7 @@ function insert(num){
     document.getElementById("buttonNum9").disabled = true;
     document.getElementById("decimalButton").disabled = true;
   }
+  preComma = document.calc.display.value.split(",").join("")
   //console.log("modified", document.calc.display.value.split(",").join(""));
   //console.log("docCalc developed",document.calc.display.value);
   if(decInserted == false){
@@ -112,14 +116,17 @@ function equal(){
   }
 }
 function numberNegation(){
-    document.calc.display.value=document.calc.display.value*-1
-    expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] *-1
+  document.calc.display.value = preComma *-1
+  document.calc.display.value = Number(document.calc.display.value.split(",").join("")).toLocaleString();
+    expressionArray[expressionArray.length - expressionArray.length ]= expressionArray[expressionArray.length - expressionArray.length] *-1
     console.log(expressionArray)
 }
 
 function numberPercentage(){
-  document.calc.display.value=document.calc.display.value/100
-  expressionArray[expressionArray.length -1 ]= expressionArray[expressionArray.length -1] /100
+  document.calc.display.value = preComma / 100
+  document.calc.display.value = Number(document.calc.display.value.split(",").join("")).toLocaleString();
+    expressionArray
+    console.log(expressionArray)
 }
 
 function decimalInsert(num){
