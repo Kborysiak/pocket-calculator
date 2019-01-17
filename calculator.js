@@ -39,11 +39,10 @@ function insert(num){
     document.getElementById("buttonNum9").disabled = true;
     document.getElementById("decimalButton").disabled = true;
   }
-  //console.log("modified", document.calc.display.value.split(",").join(""));
-  //console.log("docCalc developed",document.calc.display.value);
+
   if(decInserted == false){
-  let commaInput = Number(document.calc.display.value.split(",").join("")).toLocaleString();
-  document.calc.display.value = commaInput;
+ let commaInput = Number(document.calc.display.value.split(",").join("")).toLocaleString();
+ document.calc.display.value = commaInput;
   }
 }
 function clearCalc(){
@@ -113,9 +112,9 @@ function equal(){
   }
 }
 function numberNegation(){
-  document.calc.display.value = document.calc.display.value.split(",").join("")
+  document.calc.display.value = document.calc.display.value.split(",").join('')
   document.calc.display.value = document.calc.display.value * -1
-  document.calc.display.value = Number(document.calc.display.value.split(",").join("")).toLocaleString();
+  document.calc.display.value = Number(document.calc.display.value.split(",").join('')).toLocaleString();
     expressionArray[expressionArray.length - expressionArray.length ]= expressionArray[expressionArray.length - expressionArray.length] *-1
     console.log(expressionArray)
 }
@@ -123,10 +122,8 @@ function numberNegation(){
 function numberPercentage(){
   document.calc.display.value = document.calc.display.value.split(",").join("")
   document.calc.display.value = document.calc.display.value / 100
-  let numberToBePercentage = expressionArray
-  numberToBePercentage = numberToBePercentage / 100
-  expressionArray[expressionArray.length - expressionArray.length ]= expressionArray[expressionArray.length - expressionArray.length] = numberToBePercentage
-    console.log(expressionArray)
+  expressionArray = document.calc.display.value
+  console.log(expressionArray)
 }
 
 function decimalInsert(num){
