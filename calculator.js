@@ -3,6 +3,8 @@ var expressionArray= [];
 var decStatus = false;
 var piStatus = false;
 var decInserted = false;
+var firstPercent = false;
+var symbolStatus = false;
 //var firstCondition = false;
 //var secondCondition = false;
 function insert(num){
@@ -66,6 +68,8 @@ function clearCalc(){
     document.getElementById("decimalButton").disabled = false;
 }
 function clearOnOp(){
+  symbolStatus = false
+  firstPercent = false;
   document.calc.display.value= 0
   executed = false;
   decStatus = false;
@@ -85,6 +89,8 @@ function clearOnOp(){
   document.getElementById("decimalButton").disabled = false;
 }
 function equal(){
+  symbolStatus = false
+  firstPercent = false;
   piStatus = false;
   document.getElementById("decimalButton").disabled = true;
   document.getElementById("buttonNum0").disabled = true;
@@ -121,9 +127,11 @@ function numberNegation(){
 
 function numberPercentage(){
   document.calc.display.value = document.calc.display.value.split(",").join("")
-  let numsCount = document.calc.display.value.length
-  numsCount = numsCount -1
-  console.log("nums", numsCount)
+
+  if(firstPercent == false){
+    let numsCount = document.calc.display.value.length
+    numsCount = numsCount -1
+    console.log("nums", numsCount)
   let amountToBeRemoved = expressionArray.length - numsCount
   while(expressionArray.length >= amountToBeRemoved){
     expressionArray.pop();
@@ -131,6 +139,23 @@ function numberPercentage(){
   document.calc.display.value = document.calc.display.value / 100
 expressionArray[amountToBeRemoved] = document.calc.display.value
   console.log(expressionArray)
+  firstPercent = true;
+}else{
+  let numsCount2 = document.calc.display.value.length
+  numsCount2 = numsCount2 -4
+  console.log("nums2", numsCount2)
+  let amountToBeRemoved2 = expressionArray.length - numsCount2
+expressionArray.splice(expressionArray.length -1)
+  document.calc.display.value = document.calc.display.value / 100
+  expressionArray[amountToBeRemoved2] = document.calc.display.value
+  if(document.calc.display.value<= 0.9999999){
+    let expon= Number(document.calc.display.value)
+    console.log(typeof expon);
+    document.calc.display.value = expon.toExponential(9)
+  }
+  console.log(expressionArray)
+}
+
 }
 
 function decimalInsert(num){
@@ -150,5 +175,19 @@ function piInsert(num){
     expressionArray.push(num)
     console.log(expressionArray)
     piStatus=true;
+  }
+}
+function addInsert(num){
+  if(symbolStatus == false){
+  document.calc.display.value = document.calc.display.value + num
+  expressionArray.push(num)
+  symbolStatus = true
+}
+}
+function opInsert(num){
+  if(symbolStatus == true){
+    expressionArray.splice(expressionArray.length - 1)
+    expressionArray.push(num)
+
   }
 }
