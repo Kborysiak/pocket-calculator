@@ -19,7 +19,7 @@ function insert(num){
 }
 // BREAK //
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
-  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-'){
+  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1 == '*' || expressionArray[expressionArray.length - 1] == '/']){
     expressionArray.splice(expressionArray.length -1 , 1)
     expressionArray.push(num)
     opInserted = true;
