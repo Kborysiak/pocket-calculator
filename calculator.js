@@ -19,7 +19,7 @@ function insert(num){
 }
 // BREAK //
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
-  if(expressionArray[expressionArray.length - 1] == '*' || expressionArray[expressionArray.length - 1] == '/' || expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-'){
+  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-'){
     expressionArray.splice(expressionArray.length -1 , 1)
     expressionArray.push(num)
     opInserted = true;
@@ -182,7 +182,7 @@ if(lastSym == false){
     expressionArray.pop();
   }
   //
-  document.calc.display.value = document.calc.display.value / 100
+  document.calc.display.value = Number(document.calc.display.value) / 100
 expressionArray[amountToBeRemoved] = document.calc.display.value
   console.log(expressionArray)
   firstPercent = true;
