@@ -10,6 +10,7 @@ var opInserted = false;
 var afterEqualLastSym = false;
 var exponentialAlert;
 var firstNegationStatus = false;
+var negated = false;
   console.log("varStatus", afterEqualLastSym, opInserted, executed, decimalStatInsert, piInsertStatus, decimalNumInsert);
 // BREAK //
 function insert(num){
@@ -19,12 +20,14 @@ function insert(num){
 }
 // BREAK //
 if(num === '*' || num === '/' || num === '+'|| num === '-'){
-  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1 == '*' || expressionArray[expressionArray.length - 1] == '/']){
+  console.log(negated)
+  if(expressionArray[expressionArray.length - 1] == '+' || expressionArray[expressionArray.length - 1] == '-' || expressionArray[expressionArray.length -1 == '*'] || expressionArray[expressionArray.length - 1] == '/'){
     expressionArray.pop();
     expressionArray.push(num);
     opInserted = true;
     console.log("raw array" , expressionArray);
   }
+
 }
 // BREAK //
   if(opInserted == false){
@@ -109,6 +112,7 @@ function clearOnOp(){
   document.getElementById("decimalButton").disabled = false;
 }
 function equal(){
+  negated = false;
   symbolStatus = false
   firstPercent = false;
   piInsertStatus = false;
@@ -162,11 +166,14 @@ function numberNegation(){
     expressionArray[expressionArray.length - expressionArray.length ]= expressionArray[expressionArray.length - expressionArray.length] *-1
     console.log("negatedNumber" , expressionArray)
     firstNegationStatus = true;
-  }else{
+    negated = true;
+  }else {
     let whereToNegate = expressionArray.length - numsCountNeg
-    while(expressionArray.length >= whereToNegate){
+    if(expressionArray.length >= whereToNegate){
       expressionArray.pop();
+      negated = true;
     }
+
     expressionArray.push(negValue)
   }
 }
